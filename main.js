@@ -1,22 +1,23 @@
 'use strict';
 
-let id = 485;
+let dados = null;
 
+
+const insertDataToCards = (data) => {
+    dados = data;
+};
 
 const fetchInformation  = (url) => {
-    fetch(url).then(response => response.json()).then(data => console.log(data));
+    fetch(url).then(response => response.json()).then(data => insertDataToCards(data));
 };
 
 
-const getId = () => {
-    const urlId = id;
+const getId = (nome) => {
     const token = 1687915884717809;
 
-    const url = `http://superheroapi.com/api/${token}/${urlId}`;
-    console.log(`url = ${url}`);
+    const url = `https://www.superheroapi.com/api.php/${token}/search/${nome}`;
     fetchInformation(url);
 };
-
 
 
 
