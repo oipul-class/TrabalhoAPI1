@@ -1,6 +1,8 @@
 'use strict';
 
 let dados = null;
+const searchInput = document.getElementById('searchBar');
+const searchButton = document.getElementById('searchIcon');
 const token = 1687915884717809;
 
 const randomId = () => {
@@ -8,18 +10,48 @@ const randomId = () => {
     return number;
 };
 
-
-const insertDataToCards = (data) => {
-    dados = data;
-    console.log(dados);
+const clearContainer = (container) => {
+    container.innerHTML = "";  
 };
 
-const fetchInformation  = (url , type) => {
+const createCard = (data) => {
+    const div = document.createElement('div');
+    div.classList.add('viewCard');
+    div.innerHTML = `
+    <img src="${data.image.url}" alt="Poster do Personagem">
+        <h1>${data.name}</h1>
+        <h2>${data.biography["full-name"]}</h2>
+        <div class="saibaMaisContainer">
+            <h2>${data.biography['publisher']}</h2>
+            <div class="saibaMais">Saiba mais</div>
+        </div>
+    
+    `;
+    
+    return div;
+};
 
+const singleInsertDataToCards = (data, container) => {
+    const containerForDiv = document.getElementById(container);
+    console.log(data);
+    dados = data
+    containerForDiv.appendChild(createCard(dados));
+};
+
+
+const insertDataToCards = (data, container) => {
+    const containerForDiv = document.getElementById(container);
+    clearContainer(containerForDiv);
+    dados = data.results
+    dados.forEach(element => {
+        containerForDiv.appendChild(createCard(element));
+    });
+};
+
+const fetchInformation  = (url , type , container) => {
     const getCharacter = (alignment) => {
         const number = randomId();
         const url = `https://www.superheroapi.com/api.php/${token}/${number}`;
-        console.log(url);
         fetch(url).then(response => response.json()).then(data => {
             if (data.biography.alignment==alignment) {
                 insertDataToCards(data);
@@ -46,32 +78,38 @@ const fetchInformation  = (url , type) => {
             getCharacter("neutral");
         break;
 
-        default:
-            fetch(url).then(response => response.json()).then(data => insertDataToCards(data));
+        case ("random"):
+            fetch(url).then(response => response.json()).then(data => singleInsertDataToCards(data , container));
         break;
+
+        default:
+            fetch(url).then(response => response.json()).then(data => insertDataToCards(data , container));
+        break;
+
     }
 };
 
 const getByName = (nome) => {
     const url = `https://www.superheroapi.com/api.php/${token}/search/${nome}`;
-    fetchInformation(url);
+    console.log(url);
+    fetchInformation(url , '', 'searchCard');
 };
 
-const getById = (id) => {
+const getById = (id,container) => {
 
     const url = `https://www.superheroapi.com/api.php/${token}/${id}`;
-    fetchInformation(url);
+    fetchInformation(url,'',container);
 };
 
-const randomCard = () => {
-    const number = randomId;
+const randomCard = (container) => {
+    const number = randomId();
     const url = `https://www.superheroapi.com/api.php/${token}/${number}`;
-    fetchInformation(url, "random");
+    fetchInformation(url, "random",container);
 }
 
 
-const getCharacterByAlignment = (alignment) => {
-    fetchInformation( "" , alignment);
+const getCharacterByAlignment = (alignment,) => {
+    fetchInformation( "" , alignment,container);
 }
 
 const all = () => {
@@ -81,3 +119,12 @@ const all = () => {
     }
 };
 
+const getSearchValue = () => {
+    getByName(searchInput.value)
+};
+
+searchButton.addEventListener('click' , getSearchValue );
+
+for (let i = 0 ; i < 8 ; i++) {
+    randomCard('cardDestaque');
+}

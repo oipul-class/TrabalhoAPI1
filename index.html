@@ -1,19 +1,104 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>API</title>
     <link rel="stylesheet" href="CSS/style.css">
 </head>
+
 <body>
     <header>
         <div id="headerContainer">
             <div id="headerMenu">
                 <img src="images/cardapio.svg">
             </div>
-        </div>
+            <div class="menuOption">
+                <h4>Todos</h4>
+            </div>
+            <div class="menuOption">
+                <h4>Aleátorios</h4>
+            </div>
+            <div class="menuOption">
+                <h4>Contato</h4>
+            </div>
+            <div class="logo">
+                <img src="./images/SuperHero.png">
+            </div>
     </header>
+    <div class="mainContainer">
+        <div id="mainBackground">
+
+            <div id="searchContainer">
+                <h1>Digite o nome do seu personagem:</h1>
+                <div id="searchBox">
+                    <div id="searchLable">
+                        <input id="searchBar" type="text" value="" placeholder="Digite o nome de um herói">
+                    </div>
+                    <div id="searchIcon">
+                        <img src="images/search.svg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mainContainer">
+        <div id="searchCard">
+
+            
+        </div>
+    </div>
+    <div class="mainContainer">
+        <div id="containerSlider">
+            <div class="action-button" id="previous">&lsaquo;
+            </div>
+            <div id="container-description">
+                <h1>"Nome do Personagem"</h1>
+            </div>
+            <div id="container-image"><img src="images/batman.png"></div>
+            <div class="action-button" id="next">&rsaquo;</div>
+        </div>
+    </div>
+
+    <div class="mainContainer">
+        <div id="cardDestaque">
+            
+        </div>
+    </div>
+
+    <footer>
+        <div class="footerContainer">
+            <div class="footerLinks">
+                <h1>Entre em contato</h1>
+                <h2>Facebook</h2>
+                <h2>Twitter</h2>
+                <h2>Instagram</h2>
+            </div>
+            <div class="footerLinks">
+                <h1>Suporte</h1>
+                <h2>Problemas</h2>
+                <h2>Ajuda</h2>
+                <h2>Entre em contato conosco</h2>
+            </div>
+            <div class="footerLinks">
+                <h1>API</h1>
+                <h2>Saiba como utilizar</h2>
+                <h2>Documentação</h2>
+                <h2>Link</h2>
+            </div>
+        </div>
+        <div class="footerContainer" id="footerLine">
+            <div class="logo">
+                <img src="./images/SuperHero.png">
+            </div>
+            <div>
+                <img>
+                <h2>Repositório do git</h2>
+            </div>
+        </div>
+    </footer>
     <script src="JS/main.js"></script>
 </body>
+
 </html>
