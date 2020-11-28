@@ -33,7 +33,6 @@ const createCard = (data) => {
 
 const singleInsertDataToCards = (data, container) => {
     const containerForDiv = document.getElementById(container);
-    console.log(data);
     dados = data
     containerForDiv.appendChild(createCard(dados));
 };
@@ -91,7 +90,6 @@ const fetchInformation  = (url , type , container) => {
 
 const getByName = (nome) => {
     const url = `https://www.superheroapi.com/api.php/${token}/search/${nome}`;
-    console.log(url);
     fetchInformation(url , '', 'searchCard');
 };
 
