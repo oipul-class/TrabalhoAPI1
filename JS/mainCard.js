@@ -11,8 +11,6 @@ const token = 1687915884717809;
 
 const url = `https://www.superheroapi.com/api.php/${token}/${id}`;
 
-console.log(url);
-
 // nomes
 const nome = document.getElementById('heroName');
 const nomeCompleto = document.getElementById('heroFullName');
@@ -40,8 +38,7 @@ const peso = document.getElementById('pesoPersonagem');
 
 const statusPointsSize = (statusPoint , dados) => {
     const status = dados !=null ? dados : 0;
-    tamanho = status/2;
-    console.log(tamanho);
+    const tamanho = status/2;
     statusPoint.style.width = `${tamanho}vw`;
 };
 

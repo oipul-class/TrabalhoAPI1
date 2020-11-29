@@ -16,7 +16,6 @@ const clearContainer = (container) => {
 
 const cardButtonClick = (id) => {
     sessionStorage.setItem('characterId' , id );
-    alert(id);
     window.location.href = 'cards.html';
 };
 
