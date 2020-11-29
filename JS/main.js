@@ -11,23 +11,27 @@ const randomId = () => {
 };
 
 const clearContainer = (container) => {
-    container.innerHTML = "";  
+    container.innerHTML = "";
 };
 
 const createCard = (data) => {
     const div = document.createElement('div');
     div.classList.add('viewCard');
     div.innerHTML = `
-    <img src="${data.image.url}" alt="Poster do Personagem">
-        <h1>${data.name}</h1>
-        <h2>${data.biography["full-name"]}</h2>
-        <div class="saibaMaisContainer">
-            <h2>${data.biography['publisher']}</h2>
-            <div class="saibaMais">Saiba mais</div>
+    <div class="viewCard">
+        <img src="${data.image.url}" alt="Poster do Personagem">
+        <div class="cardBox">
+            <h1>${data.name}</h1>
+            <h2>${data.biography["full-name"]}</h2>
+            <div class="saibaMaisContainer">
+                <h2>${data.biography['publisher']}</h2>
+                <div class="saibaMais">Saiba mais</div>
+            </div>
         </div>
+    </div>
     
     `;
-    
+
     return div;
 };
 
@@ -47,14 +51,14 @@ const insertDataToCards = (data, container) => {
     });
 };
 
-const fetchInformation  = (url , type , container) => {
+const fetchInformation = (url, type, container) => {
     const getCharacter = (alignment) => {
         const number = randomId();
         const url = `https://www.superheroapi.com/api.php/${token}/${number}`;
         fetch(url).then(response => response.json()).then(data => {
-            if (data.biography.alignment==alignment) {
+            if (data.biography.alignment == alignment) {
                 insertDataToCards(data);
-            }else {
+            } else {
                 return getCharacter(alignment);
             }
         });
@@ -67,53 +71,53 @@ const fetchInformation  = (url , type , container) => {
 
         case ("hero"):
             getCharacter("good");
-        break;
+            break;
 
         case ("villain"):
             getCharacter("bad");
-        break;
+            break;
 
         case ("neutral"):
             getCharacter("neutral");
-        break;
+            break;
 
         case ("random"):
-            fetch(url).then(response => response.json()).then(data => singleInsertDataToCards(data , container));
-        break;
+            fetch(url).then(response => response.json()).then(data => singleInsertDataToCards(data, container));
+            break;
 
         default:
-            fetch(url).then(response => response.json()).then(data => insertDataToCards(data , container));
-        break;
+            fetch(url).then(response => response.json()).then(data => insertDataToCards(data, container));
+            break;
 
     }
 };
 
 const getByName = (nome) => {
     const url = `https://www.superheroapi.com/api.php/${token}/search/${nome}`;
-    fetchInformation(url , '', 'searchCard');
+    fetchInformation(url, '', 'searchCard');
 };
 
-const getById = (id,container) => {
+const getById = (id, container) => {
 
     const url = `https://www.superheroapi.com/api.php/${token}/${id}`;
-    fetchInformation(url,'',container);
+    fetchInformation(url, '', container);
 };
 
 const randomCard = (container) => {
     const number = randomId();
     const url = `https://www.superheroapi.com/api.php/${token}/${number}`;
-    fetchInformation(url, "random",container);
+    fetchInformation(url, "random", container);
 }
 
 
-const getCharacterByAlignment = (alignment,) => {
-    fetchInformation( "" , alignment,container);
+const getCharacterByAlignment = (alignment, ) => {
+    fetchInformation("", alignment, container);
 }
 
 const all = () => {
-    for (let i = 1 ; i < 722; i++) {
-    const url = `https://www.superheroapi.com/api.php/${token}/${i}`;
-    fetchInformation(url);
+    for (let i = 1; i < 722; i++) {
+        const url = `https://www.superheroapi.com/api.php/${token}/${i}`;
+        fetchInformation(url);
     }
 };
 
@@ -121,8 +125,8 @@ const getSearchValue = () => {
     getByName(searchInput.value)
 };
 
-searchButton.addEventListener('click' , getSearchValue );
+searchButton.addEventListener('click', getSearchValue);
 
-for (let i = 0 ; i < 8 ; i++) {
+for (let i = 0; i < 8; i++) {
     randomCard('cardDestaque');
 }
