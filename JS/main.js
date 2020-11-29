@@ -14,6 +14,12 @@ const clearContainer = (container) => {
     container.innerHTML = "";
 };
 
+const cardButtonClick = (id) => {
+    sessionStorage.setItem('characterId' , id );
+    alert(id);
+    window.location.href = 'cards.html';
+};
+
 const createCard = (data) => {
     const div = document.createElement('div');
     div.classList.add('viewCard');
@@ -25,7 +31,7 @@ const createCard = (data) => {
             <h2>${data.biography["full-name"]}</h2>
             <div class="saibaMaisContainer">
                 <h2>${data.biography['publisher']}</h2>
-                <div class="saibaMais">Saiba mais</div>
+                <button class="saibaMais" onclick="cardButtonClick(${data.id})">Saiba mais</button>
             </div>
         </div>
     </div>
