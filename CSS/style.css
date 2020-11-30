@@ -12,6 +12,7 @@ header {
     background-color: #0C2D48;
     position: fixed;
     z-index: 100;
+    border-bottom: solid 5px #3949ab;;
 }
 
 body {
@@ -82,8 +83,8 @@ body {
 }
 
 #menuDrop li:hover {
-    background-color: #145DA0;
-    border-bottom: solid 5px #2E8BC0;
+    background-color: #3949ab;
+    border-bottom: solid 5px #3949ab;
     transition: all 0.3s;
 }
 
@@ -117,18 +118,20 @@ body {
 .menuOption:hover {
     text-decoration: underline;
     cursor: pointer;
-    color: #145DA0;
+    color: #3949ab;
 }
 
 .menuOption:active {
     text-decoration: underline;
-    color: #001970;
+    color: #3949ab;
 }
 
 .mainContainer {
     width: 100%;
     min-height: 10px;
     overflow: hidden;
+    border-top: solid 2px #3949ab;
+
 }
 
 .logo {
@@ -291,6 +294,11 @@ body {
     border: solid 1px #001970;
     /* border-radius: 200px; */
     /* border: solid 2px #0C2D48; */
+    background-image: url(../images/semFoto.jpg);
+    background-position: center;
+    background-size: cover;
+
+    
 }
 
 .cardBox {
@@ -353,6 +361,8 @@ body {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    border-top: solid 3px #3949ab;
+    border-bottom: solid 3px #3949ab;
 }
 
 #container-description {
@@ -406,7 +416,7 @@ body {
     min-height: 80vh;
     overflow: hidden;
     padding: 0 10vw;
-    background-color: #2E8BC0;
+    background-color: #145DA0;
     display: flex;
     justify-content: flex-start;
     gap: 5vw;
@@ -418,6 +428,7 @@ footer {
     min-height: 10vh;
     overflow: hidden;
     background-color: #0C2D48;
+    border-top: solid 2px #3949ab;
 }
 
 .footerContainer {
@@ -436,7 +447,7 @@ footer {
     width: 300px;
     height: 500px;
     background-color: #145DA010;
-    box-shadow: 0px 0px 2px 0px black;
+    box-shadow: 0px 0px 2px 0px #3949ab;
     /* border: solid 1px black; */
     padding: 10px;
     color: #ffffff;
@@ -461,7 +472,7 @@ footer {
 }
 
 #footerLine {
-    border-top: solid 2px black;
+    border-top: solid 2px #3949ab;
     justify-content: space-between;
 }
 
@@ -508,6 +519,7 @@ footer {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    border: solid 5px #3949ab;
 }
 
 .titlesContainer {
@@ -527,7 +539,7 @@ footer {
 
 #heroName,
 #primeiraAparicao {
-    border-bottom: solid 2px #ffffff;
+    border-bottom: solid 2px #3949ab;
     color: #ffffff;
     width: fit-content;
     margin-bottom: 5px;
@@ -563,16 +575,19 @@ footer {
     justify-content: space-between;
     border-radius: 25px;
     margin-bottom: 10px;
+    border: solid 2px #3949ab;
 }
 
 .typeStatus {
     min-width: 12vw;
     overflow: hidden;
     height: fit-content;
+    /* border-bottom: solid 2px #3949ab; */
 }
 
 .typeStatus h2 {
     color: #ffffff;
+    /* border-bottom: solid 2px #3949ab; */
 }
 
 .statusPoints {
@@ -595,14 +610,17 @@ footer {
 #heroImage img {
     width: inherit;
     height: 75vh;
-    border: solid 1px black;
+    border: solid 1px #3949ab;
     /* background-color: #32caac; */
+    background-image: url(../images/semFoto.jpg);
+    background-position: center;
+    background-size: cover;
 }
 
 #pesoAltura {
     width: inherit;
     height: fit-content;
     /* background-color: #fff; */
-    border-top: solid 2px black;
+    border-top: solid 2px #3949ab;
     color: #ffffff;
 }
