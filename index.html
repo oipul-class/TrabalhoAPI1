@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>API</title>
     <link rel="stylesheet" href="CSS/style.css">
+    <script src="JS/jquery.js"></script>
+    <script src="JS/ancora.js"></script>
 </head>
 
 <body>
@@ -13,22 +15,34 @@
         <div id="headerContainer">
             <div id="headerMenu">
                 <img src="images/cardapio.svg">
-                <div id="menuDrop">
+                <!-- <div id="menuDrop">
                     <ul>
                         <li>Heróis</li>
                         <li>Vilões</li>
                         <li>Neutros</li>
                     </ul>
-                </div>
+                </div> -->
             </div>
             <div class="menuOption">
-                <h4>Todos</h4>
+                <h4>
+                    <a href="#searchBar">
+                        Pesquisar
+                    </a>
+                </h4>
             </div>
             <div class="menuOption">
-                <h4>Aleátorios</h4>
+                <h4>
+                    <a href="#cardDestaque">
+                        Destaque
+                    </a>
+                </h4>
             </div>
             <div class="menuOption">
-                <h4>Contato</h4>
+                <h4>
+                    <a href="#footerLine">
+                        Contato
+                    </a>
+                </h4>
             </div>
             <div class="logo">
                 <img src="./images/SuperHero.png">
@@ -57,10 +71,12 @@
     </div>
     <div class="mainContainer">
         <div id="containerSlider">
-            <div id="container-description">
+            <!-- <div id="container-description">
                 <h1>"Nome do Personagem"</h1>
             </div>
-            <div id="container-image"><img src="images/batman.png"></div>
+            <div id="container-image"><img src="images/batman.png"></div> -->
+            <h1>Alguns personagens em destaque</h1>
+
         </div>
     </div>
 
@@ -95,7 +111,9 @@
                 <img src="./images/SuperHero.png">
             </div>
             <div>
-                <img>
+                <a href="https://github.com/oipul-class/TrabalhoAPI1" id="gitImage">
+                    <img src="./images/logotipo-do-github.svg">
+                </a>
                 <h2>Repositório do git</h2>
             </div>
         </div>
