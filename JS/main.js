@@ -126,12 +126,16 @@ const all = () => {
     }
 };
 
+const setRandomCharacters = (n) => {
+    for (let i = 0; i < n; i++) {
+        randomCard('cardDestaque');
+    }
+}
+
 const getSearchValue = () => {
     getByName(searchInput.value)
 };
 
 searchButton.addEventListener('click', getSearchValue);
 
-for (let i = 0; i < 8; i++) {
-    randomCard('cardDestaque');
-}
+setRandomCharacters(8)
